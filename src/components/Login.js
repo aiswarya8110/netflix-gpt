@@ -1,10 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import Header from './Header'
+import checkValidData from '../utils/validate';
 
 const Login = () => {
     const [ signIn, setSignIn ] = useState(true);
+    const [ error, setError ] = useState(false);
+    const [ errorMessage, setErrorMessage ] = useState("");
+    const nameInputRef = useRef();
+    const emailInputRef = useRef();
+    const passwordInputRef = useRef();
+
     const handleSubmit = (e)=>{
         e.preventDefault();
+        console.log(emailInputRef);
+        console.log(passwordInputRef);
+        const result = checkValidData(nameInputRef.current.value,emailInputRef.current.value, passwordInputRef.current.value);
+        console.log(result);
+
+        if(result){
+            setError(true);
+            setErrorMessage(result);
+        }
+        else{
+            setError(false);
+        }
     }
   return (
     <div className='relative'>
@@ -16,9 +35,10 @@ const Login = () => {
             <h1 className="font-bold text-3xl py-4">
                 {signIn ? 'Sign In' : 'Sign Up'}
             </h1>
-            {!signIn && <input type="text" name="name" placeholder='Full Name' className='p-2 my-2 w-full bg-gray-700 outline-none'/>}
-            <input type="text" name="email" placeholder='Email Address' className='p-2 my-2 w-full bg-gray-700 outline-none'/>
-            <input type="text" name="password" placeholder='Password' className='p-2 my-2 w-full bg-gray-700 outline-none' />
+            {!signIn && <input type="text" name="name" placeholder='Full Name' ref={nameInputRef} className='p-2 my-2 w-full bg-gray-700 outline-none'/>}
+            <input type="text" name="email" placeholder='Email Address' ref={emailInputRef} className='p-2 my-2 w-full bg-gray-700 outline-none'/>
+            <input type="text" name="password" placeholder='Password' ref={passwordInputRef} className='p-2 my-2 w-full bg-gray-700 outline-none' />
+            {error && <p className='text-lg text-red-500 font-bold'>{errorMessage}</p>}
             <button className='p-4 my-4 bg-red-700 w-full rounded-lg' type='submit'>
                 {signIn ? 'Sign In' : 'Sign Up'}
             </button>

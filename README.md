@@ -1,3 +1,15 @@
+# Netflix GPT
+
+- Create React App
+- Configured Tailwindcss
+- Header
+- Routing
+- Login Form
+- Sign Up Form
+- Form Validation
+- useRef Hook
+
+
 # Features
 
 - Login/signUp 
