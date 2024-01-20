@@ -4,35 +4,21 @@ import checkValidData from '../utils/validate';
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../utils/firebase';
 import { useDispatch } from 'react-redux';
-import { addUser, removeUser } from '../utils/userSlice';
-import { redirect, useNavigate } from 'react-router-dom';
+import { addUser } from '../utils/userSlice';
 import { updateProfile } from 'firebase/auth';
 import { Netflix_Avatar } from '../utils/constants';
 
 const Login = () => {
     const [ signIn, setSignIn ] = useState(true);
+    console.log(signIn);
     const [ error, setError ] = useState(false);
     const [ errorMessage, setErrorMessage ] = useState("");
     const nameInputRef = useRef();
     const emailInputRef = useRef();
     const passwordInputRef = useRef();
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
-    useEffect(()=>{
-        onAuthStateChanged(auth, (user)=>{
-            if(user){
-                    const { displayName, email, uid, photoURL } = user;
-                    dispatch(addUser({displayName, email, uid, photoURL}))
-                    navigate("/browse");
-            }else{
-                dispatch(removeUser())
-                navigate("/");          
-            }
-        })
-    },[])
-
-    const handleSubmit = async(e)=>{
+    const handleSubmit = (e)=>{
         e.preventDefault();
         const message = checkValidData(nameInputRef.current?.value,emailInputRef.current.value, passwordInputRef.current.value);
         if(message){
@@ -50,7 +36,6 @@ const Login = () => {
                 .then(()=>{
                     const { displayName, email, uid, photoURL } = auth.currentUser;
                     dispatch(addUser({displayName, email, uid, photoURL}));
-                    navigate("/browse");
                 })
                 .catch((error)=>{
                      const errorCode = error.code;
