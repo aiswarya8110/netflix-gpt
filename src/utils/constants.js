@@ -6,6 +6,8 @@ export const NOW_PLAYING_MOVIES_API = 'https://api.themoviedb.org/3/movie/now_pl
 
 export const MOVIES_VIDEOS_API = 'https://api.themoviedb.org/3/movie/';
 
+export const TMDB_IMAGE_URL = 'https://image.tmdb.org/t/p/w500/';
+
 export const API_OPTIONS = {
     method: 'GET',
     headers: {
