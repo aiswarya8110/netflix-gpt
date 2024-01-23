@@ -17,7 +17,7 @@ const Header = () => {
   }
 
   useEffect(()=>{
-    onAuthStateChanged(auth, (user)=>{
+    const unSubscribe = onAuthStateChanged(auth, (user)=>{
         if(user){
           const { email, uid, displayName, photoURL } = user;
           dispatch(addUser({email, uid, displayName, photoURL}));
@@ -28,15 +28,16 @@ const Header = () => {
           navigate("/");
         }
     })
+     return ()=> unSubscribe();
   },[])
 
   return (
-    <div className='w-full flex justify-between absolute px-8 py-2 bg-gradient-to-b from-black'>
+    <div className='w-full flex justify-between fixed px-8 py-2 bg-gradient-to-b from-black z-10'>
         <img src={netflixLogo} alt="logo" className='w-44'/>
         {user && (
           <div className='flex items-center'>
-            <img src={user.photoURL} className="w-8"/>
-            <p>Hello, {user.displayName}</p>
+            <img src={user.photoURL} className="w-8 mr-3"/>
+            <p className='text-white'>Hello, {user.displayName}</p>
             <button onClick={handleSignOut} className="text-white font-semibold ml-2">
               SignOut
             </button>
