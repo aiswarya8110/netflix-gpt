@@ -28,6 +28,9 @@
 - Update store with Trailer key
 - Embedded the youtube video and made it autoplay and mute
 - Tailwind classes to make MainContainer look awesome
+- Build Secondary Component
+- Build MovieList & MovieCard Component
+- Build custom hook to fetch all movies by category & updated the store
 # Features
 
 - Login/signUp 
