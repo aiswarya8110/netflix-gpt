@@ -8,6 +8,12 @@ export const MOVIES_VIDEOS_API = 'https://api.themoviedb.org/3/movie/';
 
 export const TMDB_IMAGE_URL = 'https://image.tmdb.org/t/p/w500/';
 
+export const MOST_POPULAR_MOVIES_API = "https://api.themoviedb.org/3/movie/popular?page=1";
+
+export const UPCOMING_MOVIES_API = "https://api.themoviedb.org/3/movie/upcoming?page=1";
+
+export const TOP_RATED_MOVIES_API = "https://api.themoviedb.org/3/movie/top_rated?page=1";
+
 export const API_OPTIONS = {
     method: 'GET',
     headers: {

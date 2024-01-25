@@ -32,7 +32,7 @@ const Header = () => {
   },[])
 
   return (
-    <div className='w-full flex justify-between fixed px-8 py-2 bg-gradient-to-b from-black z-10'>
+    <div className='w-full flex justify-between fixed px-8 py-2 bg-gradient-to-b from-black z-20'>
         <img src={netflixLogo} alt="logo" className='w-44'/>
         {user && (
           <div className='flex items-center'>
