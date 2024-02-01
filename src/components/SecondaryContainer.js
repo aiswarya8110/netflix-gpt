@@ -1,11 +1,9 @@
 import React from 'react';
 import MovieList from "./MovieList";
 import { useSelector } from 'react-redux';
-import useAllMoviesByCategory from './useAllMoviesByCategory';
 
 const SecondaryContainer = ()=>{
     const movies = useSelector((store)=> store.movies);
-    // useAllMoviesByCategory();
     if(!movies) return;
 
     if(movies.nowPlayingMovies || movies.topRatedMovies || movies.upcomingMovies || movies.mostPopularMovies)

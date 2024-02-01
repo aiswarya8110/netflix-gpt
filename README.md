@@ -29,8 +29,13 @@
 - Embedded the youtube video and made it autoplay and mute
 - Tailwind classes to make MainContainer look awesome
 - Build Secondary Component
+- TMDB image CDN
+- Made the Browser page amazing with Tailwindcss
 - Build MovieList & MovieCard Component
 - Build custom hook to fetch all movies by category & updated the store
+- GPT search Page
+- Multi language feature in our App
+- Integrate GPT APIs
 # Features
 
 - Login/signUp 
