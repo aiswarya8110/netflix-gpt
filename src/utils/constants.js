@@ -14,6 +14,11 @@ export const UPCOMING_MOVIES_API = "https://api.themoviedb.org/3/movie/upcoming?
 
 export const TOP_RATED_MOVIES_API = "https://api.themoviedb.org/3/movie/top_rated?page=1";
 
+
+export const OPENAI_API_KEY = "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";
+
+export const SEARCH_MOVIE_API= "https://api.themoviedb.org/3/search/movie?query="
+
 export const API_OPTIONS = {
     method: 'GET',
     headers: {

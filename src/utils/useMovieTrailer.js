@@ -12,7 +12,6 @@ const useMovieTrailer = (id)=>{
 
             const trailers = data.results.filter((item)=> item.type === "Trailer");
             const trailer = trailers.length === 0 ? data.results[0] : trailers[0];
-            console.log(trailer);
             dispatch(addMovieTrailerKey(trailer.key));
         }
         catch(error){

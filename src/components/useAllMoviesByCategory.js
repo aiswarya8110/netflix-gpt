@@ -13,10 +13,7 @@ const useAllMoviesByCategory = ()=>{
             fetch(UPCOMING_MOVIES_API, API_OPTIONS)
         ])
 
-        console.log(results);
-
         const promises = results.map(async({ value })=> value.json())
-        console.log(promises);
         const movieCategoryDataList = await Promise.allSettled(promises);
         movieCategoryDataList.forEach(({ value }, index)=>{
             if(value.results){

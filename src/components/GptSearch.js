@@ -1,17 +1,18 @@
 import React from 'react';
-import lang from '../utils/languageConstants';
-import { useSelector } from 'react-redux';
+import GptSearchBar from './GptSearchBar';
+import GptSearchResults from './GptSearchResults';
+import { LOGIN_BG_IMAGE } from '../utils/constants';
+
 const GptSearch = ()=>{
-    const currentLanguage = useSelector((store)=> store.app.currentLanguage);
+    
+
     return (
-            <div className='text-center h-screen flex justify-center items-start bg-black'>
-                <form className='grid grid-cols-12 mt-40'>
-                    <input type="text" className='col-span-9 h-10 outline-none' 
-                    placeholder={lang[currentLanguage].gptSearchPlaceholder} />
-                    <button className='col-span-3 h-10 py-2 px-4 bg-red-700 text-white'>
-                        {lang[currentLanguage].search}
-                    </button>
-                </form>
+            <div className='h-full bg-gradient-to-b from-black flex justify-center items-center relative'>
+                <img src={LOGIN_BG_IMAGE} className='absolute top-0 left-0 right-0 bottom-0 h-full w-full -z-[1]' alt="bg-image" />
+                <div className='w-11/12 h-3/4 overflow-y-scroll no-scrollbar'>
+                    <GptSearchBar />
+                    <GptSearchResults />
+                </div>
             </div>
         )
 }
