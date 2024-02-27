@@ -59,10 +59,10 @@ const Login = () => {
         }
     }
   return (
-    <div className='relative h-screen'>
+    <div className='relative h-screen w-screen'>
         <Header />
             <img src={LOGIN_BG_IMAGE} alt="background-img" className='absolute top-0 left-0 bottom-0 right-0 h-full w-full object-cover'/>
-            <form onSubmit={handleSubmit} className='p-12 absolute top-2/4 left-2/4 w-3/12 bg-black translate-x-[-50%] translate-y-[-50%] text-white bg-opacity-80'>
+            <form onSubmit={handleSubmit} className='p-5 md:p-6 lg:p-12 absolute top-2/4 left-2/4 w-full md:w-2/4 lg:w-1/4 bg-black translate-x-[-50%] translate-y-[-50%] text-white bg-opacity-80'>
                 <h1 className="font-bold text-3xl py-4">
                     {signIn ? 'Sign In' : 'Sign Up'}
                 </h1>

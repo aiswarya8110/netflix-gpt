@@ -8,10 +8,8 @@ const MainContainer = ()=>{
 
     const mainMovie = nowPlayingMovies[Math.floor(Math.random()*nowPlayingMovies.length)];
     return (
-        <div>
             <VideoBackground movieData={mainMovie} />
-        </div>
-    )
+        )
 }
 
 export default MainContainer;

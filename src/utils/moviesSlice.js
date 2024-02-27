@@ -27,10 +27,13 @@ const moviesSlice = createSlice({
         },
         addCurrentViewedMovieData: (state, action)=>{
             return {...state, currentViewedMovieData: action.payload}
+        },
+        removeCurrentViewedMovieData: (state)=>{
+            return {...state, currentViewedMovieData: null};
         }
     }
 });
 
-export const { addNowPlayingMovies, addMovieTrailerKey, addMostPopularMovies, addTopRatedMovies, addUpComingMovies, addCurrentViewedMovie, removeCurrentViewedMovie, addCurrentViewedMovieData } = moviesSlice.actions;
+export const { addNowPlayingMovies, addMovieTrailerKey, addMostPopularMovies, addTopRatedMovies, addUpComingMovies, addCurrentViewedMovie, removeCurrentViewedMovie, addCurrentViewedMovieData, removeCurrentViewedMovieData } = moviesSlice.actions;
 
 export default moviesSlice.reducer;

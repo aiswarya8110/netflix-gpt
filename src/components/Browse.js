@@ -11,7 +11,7 @@ const Browse = () => {
   useAllMoviesByCategory();
   return (
     <div className="h-screen">
-      <Header />
+      <Header/>
       {showGptSearchBar ? <GptSearch /> :(
       <>
         <MainContainer />
@@ -20,7 +20,7 @@ const Browse = () => {
       )}
       
     </div>
-  )
+  ) 
 }
 
 export default Browse

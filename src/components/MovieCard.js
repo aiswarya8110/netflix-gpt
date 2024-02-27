@@ -10,11 +10,11 @@ const MovieCard = ({ movieData })=>{
     if(!poster_path) return;
 
     return (
-        <div className='shrink-0 h-80 hover:scale-105 cursor-pointer duration-1000 ease-out transition' onMouseEnter={()=> dispatch(addCurrentViewedMovie(movieData))} 
+        <div className='shrink-0 h-40 md:h-80 hover:scale-105 cursor-pointer duration-1000 ease-out transition' onMouseEnter={()=> dispatch(addCurrentViewedMovie(movieData))} 
         onMouseLeave={()=> dispatch(removeCurrentViewedMovie())}>
             {currentViewedMovie?.uid === uid ? (
             <CurrentMovie movieId={id} />) : (
-            <img src={TMDB_IMAGE_URL+poster_path} alt="movie thumbnail" className='w-48'/>)}
+            <img src={TMDB_IMAGE_URL+poster_path} alt="movie thumbnail" className='w-32 md:w-48'/>)}
         </div>
     )
 }
